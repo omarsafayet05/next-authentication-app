@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 export default function Header() {
   return (
@@ -27,7 +28,13 @@ export default function Header() {
               <Link href={"/about"}>About</Link>
             </li>
             <li>
-              <Link href={"/sign-in"}>Sign in</Link>
+              {/* <Link href={"/sign-in"}>Sign in</Link> */}
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
+              <SignedOut>
+                <SignInButton />
+              </SignedOut>
             </li>
           </ul>
         </nav>
